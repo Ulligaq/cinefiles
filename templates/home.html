@@ -1,0 +1,24 @@
+{% extends "reviewBase.html" %}
+
+{% block title %}Home{% endblock title %}
+
+
+
+{% block feed %}
+
+
+    {% for review in review_list%}
+        <div class="reviewCard">
+            <image src="{{review.thumbnail}}"></image>
+
+            <div>
+                <a href="{% url 'review_detail' review.pk %}"><span class="font-weight-bold">{{ review.title }}</span></a>
+                <h1>{{ review.title }}</h1>
+                <h2>{{ review.author }}</h2>
+            </div>
+            
+        </div>
+    {% endfor %}
+
+{% endblock %}
+

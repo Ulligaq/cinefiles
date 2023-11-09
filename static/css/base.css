@@ -1,0 +1,112 @@
+
+body {
+    background-color: #382121;
+    color:white;
+    height: 100vh;
+}
+
+.navbelt {
+    height: 3em;
+    background-color: #4d2f2f;
+}
+
+.mainContent{
+    display: flex;
+    flex-direction: row;
+    height: calc(100vh - 6em);
+}
+
+.reviewFeed{
+    display: flex;
+    flex-direction: column;
+    background-color: #301c1c;
+
+    height: calc(100vh - 6em);
+
+    overflow:auto;
+    padding: 20px;
+    margin-left: 3em;
+    margin-right: 3em;
+    max-width: 60em;
+    max-width: 30em;
+    padding-bottom: 30px;
+}
+
+
+.reviewCard{
+    display: flex;
+    background-color: #4d2f2f;
+    color: #dacbcb;
+    align-items: right;
+
+    height: 10em;
+    max-width: 50em;
+    min-width: 20em;
+
+    padding: 1em;
+    margin: 1em;
+    transition: .2s;
+    border-radius: 0 1em 1em 0 ;
+}
+
+.reviewCard > img{
+    height: 100%;
+    padding-right: 2em;
+}
+
+.reviewCard:hover{
+    transform: rotate(2deg);
+    transition: .5s;
+    background-color: #603e3e;
+}
+
+.cardDetail{
+    display: flex;
+    flex-direction: row;
+    background-color: #301c1c;
+    color: #dacbcb;
+    max-width: calc(100vw - 6em - 60em);
+    min-width: calc(100vw - 6em - 30em);
+    padding: 2em;
+    overflow:auto;
+}
+
+.cardDetail > div > div > img{
+    margin: 1em;
+    margin-right: 4em;
+    height: 20em;
+}
+
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+::-webkit-scrollbar-track {
+    background: #301c1c; 
+}
+::-webkit-scrollbar-thumb {
+    background: #4d2f2f; 
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #603e3e;
+}
+
+
+
+@media screen and (max-width: 1040px) {
+
+    .navbelt{
+        height: 6em;
+    }
+
+    .reviewFeed{
+        display: none;
+    }
+
+    .cardDetail{
+        max-width: calc(100vw - 2em);
+        min-width: calc(100vw - 2em);
+        margin-left: 1em;
+    }
+
+  }
