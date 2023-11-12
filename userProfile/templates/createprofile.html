@@ -1,24 +1,19 @@
 {% extends "base.html" %}
 
-
 {% block content %}
-
-
-<h2>Create A New Profile</h2>
-
-<form method="post">
-    {% csrf_token %}
-
-
-    {{ form.as_p }}
-
-    <button type="submit">Create New Account</button>
-
-
-
-
-
-</form>
-
-
+    <html>
+    <header>
+        <h2>Create A New Profile</h2>
+    </header>
+    
+    <body>
+        <form method="post">
+            {% csrf_token %}
+            
+            {{ form.as_p }}
+            
+            <button type="submit">Create New Account</button>
+        </form>
+    </body>
+    </html>
 {% endblock content %}
