@@ -17,7 +17,10 @@
 
             
             {% if user.is_authenticated %}
-                <a href="{% url 'logout' %}">LOGOUT</a>| Welcome {{ user.username }}
+                
+                <a href="{% url 'logout' %}">LOGOUT</a>|
+                <a href="{% url 'review_create' %}">Review A Film</a>| Welcome {{ user.username }}
+                
  
 
             {% else %}
