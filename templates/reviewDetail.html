@@ -10,7 +10,7 @@
         </div>
         <div>
             <h1>{{review.title}}</h1>
-            <h2>{{review.author}}</h2>
+            <h2>{{review.author}} - <a href="{% url 'review_update' review.pk %}">Edit</a> - <a href="{% url 'review_delete' review.pk %}">Delete</a></h2>
         </div>
     </div>
     <div>

@@ -1,8 +1,8 @@
 from django.shortcuts import render
-from django.views.generic import ListView, DetailView
+from django.views.generic import ListView, DetailView, UpdateView, DeleteView
 from django.views.generic.edit import CreateView
 from .models import Review
-
+from django.urls import reverse_lazy
 # Create your views here.
 
 class ReviewListView(ListView):
@@ -26,3 +26,14 @@ class ReviewCreateView(CreateView):
     def form_valid(self, form):
         form.instance.author = self.request.user
         return super().form_valid(form)
+
+class ReviewUpdateView(UpdateView):
+    model = Review
+    template_name = "reviewUpdate.html"
+    fields = ["thumbnail", "title", "content"]
+
+class ReviewDeleteView(DeleteView):
+    model = Review
+    template_name = "reviewDelete.html"
+    success_url = reverse_lazy('home')
+
