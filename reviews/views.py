@@ -22,7 +22,10 @@ class ReviewDetailView(DetailView):
 class ReviewCreateView(CreateView):
     model = Review
     template_name = "reviewCreate.html"
-    fields = ["movie", "thumbnail", "title", "content", "author"]
+    fields = ["movie", "thumbnail", "title", "content"]
+    def form_valid(self, form):
+        form.instance.author = self.request.user
+        return super().form_valid(form)
 
 class ReviewUpdateView(UpdateView):
     model = Review
@@ -33,3 +36,4 @@ class ReviewDeleteView(DeleteView):
     model = Review
     template_name = "reviewDelete.html"
     success_url = reverse_lazy('home')
+

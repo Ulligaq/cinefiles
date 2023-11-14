@@ -5,6 +5,16 @@ body {
     height: 100vh;
 }
 
+a {
+    text-decoration: none;
+    color: #56949f;
+    transition: .5s;
+}
+a:hover {
+    color: #286983;
+    transition: .2s;
+}
+
 .navbelt {
     height: 3em;
     background-color: #4d2f2f;
@@ -51,7 +61,13 @@ body {
 
 .reviewCard > img{
     height: 100%;
-    padding-right: 2em;
+    padding-right: .2em;
+}
+.reviewCard > div > a > h1{
+    font-size: 1.2em;
+}
+.reviewCard > div > h2{
+    font-size: 1em;
 }
 
 .reviewCard:hover{
@@ -65,10 +81,10 @@ body {
     flex-direction: row;
     background-color: #301c1c;
     color: #dacbcb;
-    max-width: calc(100vw - 6em - 60em);
-    min-width: calc(100vw - 6em - 30em);
+    max-width: calc(100vw - 10em - 60em);
+    min-width: calc(100vw - 10em - 30em);
     padding: 2em;
-    overflow:auto;
+    overflow-y: auto;
 }
 
 .cardDetail > div > div > img{

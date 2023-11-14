@@ -13,19 +13,19 @@
 
     <body>
         <div class="navbelt">
-            <a href="{% url 'home' %}">HOME</a> |
+            <a href="{% url 'home' %}"><img src="..\..\static\cinefiles.png" style="height: 100%; padding-left:1em"></a> |
 
             
             {% if user.is_authenticated %}
-                
-                <a href="{% url 'logout' %}">LOGOUT</a>|
-                <a href="{% url 'review_create' %}">Review A Film</a>| Welcome {{ user.username }}
-                
- 
-
+            <a href="{% url 'logout' %}">LOGOUT</a> | Welcome {{ user.username }}
+          
             {% else %}
             <a href="{% url 'login' %}">LOGIN</a> | <a href="{% url 'createprofile' %}">SIGNUP</a>
+            {% endif %}
 
+            {% if user.is_authenticated %}
+            <a href="{% url 'review_create' %}" style="padding-left:2em">New Review</a></li>
+            {% else %}
             {% endif %}
 
         </div>

@@ -1,19 +1,20 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <html>
-    <header>
-        <h2>Create A New Profile</h2>
-    </header>
-    
-    <body>
-        <form method="post">
-            {% csrf_token %}
-            
-            {{ form.as_p }}
-            
-            <button type="submit">Create New Account</button>
-        </form>
-    </body>
-    </html>
+
+<div style="margin: 0; padding: 0; display: flex; flex-direction: column;">
+<header>
+    <h2 style="padding-bottom:1em">Create A New Profile</h2>
+</header>
+
+<body>
+    <form method="post">
+        {% csrf_token %}
+        
+        {{ form.as_p }}
+        
+        <button type="submit">Create New Account</button>
+    </form>
+</body>
+</div>
 {% endblock content %}
