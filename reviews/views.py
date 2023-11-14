@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.views.generic import ListView, DetailView
+from django.views.generic.edit import CreateView
 from .models import Review
 
 # Create your views here.
@@ -16,3 +17,12 @@ class ReviewDetailView(DetailView):
         context = super(ReviewDetailView, self).get_context_data(*args, **kwargs)
         context['review_list'] = Review.objects.all()
         return context
+    
+
+class ReviewCreateView(CreateView):
+    model = Review
+    template_name = "reviewCreate.html"
+    fields = ["movie", "thumbnail", "title", "content"]
+    def form_valid(self, form):
+        form.instance.author = self.request.user
+        return super().form_valid(form)
