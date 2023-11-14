@@ -12,8 +12,7 @@
             <image src="{{review.thumbnail}}"></image>
 
             <div>
-                <a href="{% url 'review_detail' review.pk %}"><span class="font-weight-bold">{{ review.title }}</span></a>
-                <h1>{{ review.title }}</h1>
+                <a href="{% url 'review_detail' review.pk %}"><h1>{{ review.title }}</h1></a>
                 <h2>{{ review.author }}</h2>
             </div>
             

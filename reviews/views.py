@@ -22,4 +22,7 @@ class ReviewDetailView(DetailView):
 class ReviewCreateView(CreateView):
     model = Review
     template_name = "reviewCreate.html"
-    fields = ["movie", "thumbnail", "title", "content", "date", "author"]
+    fields = ["movie", "thumbnail", "title", "content"]
+    def form_valid(self, form):
+        form.instance.author = self.request.user
+        return super().form_valid(form)

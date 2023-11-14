@@ -2,8 +2,8 @@
 
 {% block content %}
 
-
-<h4>Log Into Profile</h4>
+<div style="margin: 0; padding: 0; display: flex; flex-direction: column;">
+<h2 style="padding-bottom:1em">Log Into Profile</h2>
 
 
 <form method="post">{% csrf_token %}
@@ -15,5 +15,6 @@
 
 
 </form>
+</div>
 
 {% endblock content %}
