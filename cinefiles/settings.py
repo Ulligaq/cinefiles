@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'reviews.apps.ReviewsConfig',
+    'userProfile', #created new app for user profiles
 ]
 
 MIDDLEWARE = [
@@ -127,3 +128,8 @@ STATICFILES_DIRS = [BASE_DIR / "static"]
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+#Default redirect for login
+
+LOGIN_REDIRECT_URL = "home"  #added
+LOGOUT_REDIRECT_URL = "home" #added redirects for login/logout

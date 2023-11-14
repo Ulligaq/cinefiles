@@ -13,15 +13,16 @@
 
     <body>
         <div class="navbelt">
-            <a href="{% url 'home' %}">HOME</a>
+            <a href="{% url 'home' %}">HOME</a> |
 
             
             {% if user.is_authenticated %}
-                LOGOUT
-
+                <a href="{% url 'logout' %}">LOGOUT</a>| Welcome {{ user.username }}
+ 
 
             {% else %}
-            LOGIN | SIGNUP
+            <a href="{% url 'login' %}">LOGIN</a> | <a href="{% url 'createprofile' %}">SIGNUP</a>
+
             {% endif %}
 
         </div>
