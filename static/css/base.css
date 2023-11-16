@@ -76,7 +76,7 @@ a:hover {
     color: #dacbcb;
     align-items: right;
 
-    height: 8em;
+    height: fit-content;
     width: 16em;
 
     padding: 1em;
