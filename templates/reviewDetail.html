@@ -2,20 +2,58 @@
 
 {% block title %}{{review.title}}{% endblock title %}
 
+
+
 {% block reviewDetail %}
-    
+
+    <style>
+        @media screen and (max-width: 1040px) {
+        
+            .reviewFeed{
+                display: none;
+            }
+            
+            .cardDetail{
+                display: flex;
+                max-width: calc(100vw - 2em);
+                min-width: calc(100vw - 2em);
+                margin-left: 1em;
+            }
+        }
+    </style>
+    <div style="display: flex; flex-direction: row;">
     <div style="display: flex; flex-direction: column;">
         <div>
             <image src="{{review.thumbnail}}"></image>
         </div>
         <div>
             <h1>{{review.title}}</h1>
-            <h2>{{review.author}} - <a href="{% url 'review_update' review.pk %}">Edit</a> - <a href="{% url 'review_delete' review.pk %}">Delete</a></h2>
+            <h2>{{review.author}}
+            {% if user == review.author%}
+            - <a href="{% url 'review_update' review.pk %}">Edit</a> - <a href="{% url 'review_delete' review.pk %}">Delete</a></h2>
+            {% endif %}
         </div>
     </div>
+
     <div>
         <p>
             {{review.content}}
         </p>
+    </div>
+    </div>
+
+    <div>
+        {% if user.is_authenticated %}
+            <a href="{% url 'comment_create' %}" style="padding-left:2em">--Add Comment--</a></li>
+        {% endif %}
+        
+        {% for comment in review.comment_set.all%}
+        <div class="commentCard">
+            <div>
+                <p>"{{ comment.comment }}"</p>
+                <h2>- {{ comment.author }}</h2>
+            </div>
+        </div>
+        {% endfor %}
     </div>
 {% endblock %}

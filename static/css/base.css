@@ -70,6 +70,27 @@ a:hover {
     font-size: 1em;
 }
 
+.commentCard{
+    display: flex;
+    background-color: #4d2f2f;
+    color: #dacbcb;
+    align-items: right;
+
+    height: 8em;
+    width: 16em;
+
+    padding: 1em;
+    margin-bottom: 1em;
+    transition: .2s;
+    border-radius: 1em 1em 1em 0 ;
+}
+.commentCard > div > p{
+    font-size: 1em;
+}
+.commentCard > div > h2{
+    font-size: 1em;
+}
+
 .reviewCard:hover{
     transform: rotate(2deg);
     transition: .5s;
@@ -78,7 +99,7 @@ a:hover {
 
 .cardDetail{
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     background-color: #301c1c;
     color: #dacbcb;
     max-width: calc(100vw - 10em - 60em);
@@ -87,7 +108,7 @@ a:hover {
     overflow-y: auto;
 }
 
-.cardDetail > div > div > img{
+.cardDetail > div > div > div > img{
     margin: 1em;
     margin-right: 4em;
     height: 20em;
@@ -113,16 +134,6 @@ a:hover {
 
     .navbelt{
         height: 6em;
-    }
-
-    .reviewFeed{
-        display: none;
-    }
-
-    .cardDetail{
-        max-width: calc(100vw - 2em);
-        min-width: calc(100vw - 2em);
-        margin-left: 1em;
     }
 
   }
