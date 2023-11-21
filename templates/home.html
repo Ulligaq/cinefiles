@@ -2,11 +2,23 @@
 
 {% block title %}Home{% endblock title %}
 
-
-
 {% block feed %}
 
-
+    <style>
+        @media screen and (max-width: 1040px) {
+        
+            .cardDetail{
+                display: none;
+            }
+            
+            .reviewFeed{
+                max-width: calc(100vw - 2em);
+                min-width: calc(100vw - 2em);
+                margin-left: 1em;
+            }
+        }
+    </style>
+    
     {% for review in review_list%}
         <div class="reviewCard">
             <image src="{{review.thumbnail}}"></image>
