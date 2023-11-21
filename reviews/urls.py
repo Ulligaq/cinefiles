@@ -9,4 +9,5 @@ urlpatterns = [
     path("review/<int:pk>/delete", ReviewDeleteView.as_view(template_name="reviewDelete.html"), name="review_delete"),
     path("profile/", include("django.contrib.auth.urls")), #new url for users
     path("profile/", include("userProfile.urls")), #url  for profiles
+    
 ]
