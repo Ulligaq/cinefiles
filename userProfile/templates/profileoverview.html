@@ -1,18 +1,31 @@
 {% extends "base.html" %}
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}">
+
+{% block title %}Profile Overview{% endblock title %}
 
 {% block content %}
+    <div class="profilepage">
+        <div class="profileHeader">
+            <h1>{{ user.username }}'s Profile Overview</h1>
+            <p>Email: {{ user.email }}</p>
+        </div>
 
-<div style="margin: 0; padding: 0; display: flex; flex-direction: column;">
-    <header>
-        <h2 style="padding-bottom: 1em">{{ user.username }}'s Profile Overview</h2>
-    </header>
+        <div class="profileDetails">
+            <div class="profileBox">
+                <h2>Favorite Movie</h2>
+                <p>{{ profile.favorite_movie }}</p>
+            </div>
 
-    <body>
-        <h3>Favorite Movie: {{ user.profile.favorite_movie }}</h3>
-        <h3>Favorite Color: {{ user.profile.favorite_color }}</h3>
-        
-        <a href="{% url 'edit_profile' %}">Edit Profile</a>
-    </body>
-</div>
+            <div class="profileBox">
+                <h2>Age</h2>
+                <p>{{ profile.age }}</p>
+            </div>
+            <!-- Add more profile boxes for additional information -->
+        </div>
 
+        <a href="{% url 'edit_profile' %}" class="editProfileLink">Edit Profile</a>
+    </div>
 {% endblock content %}
+
+

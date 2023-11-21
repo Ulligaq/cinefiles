@@ -126,3 +126,61 @@ a:hover {
     }
 
   }
+
+
+
+  /* Added for Profile*/
+
+  .profilePage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2em;
+}
+
+.profileHeader {
+    text-align: center;
+    margin-bottom: 2em;
+}
+
+.profileDetails {
+    display: flex;
+    justify-content: center;
+    gap: 2em;
+}
+
+.profileBox {
+    background-color: #4d2f2f;
+    color: #dacbcb;
+    padding: 1em;
+    border-radius: 0 1em 1em 0;
+    transition: .2s;
+    text-align: center; /* Center the text inside the box */
+}
+
+.profileBox h2 {
+    font-size: 1.5em;
+    color: #dacbcb;
+}
+
+.profileBox p {
+    font-size: 1.2em;
+    margin: 0; /* Remove default margin for p element */
+}
+
+.profileBox:hover {
+    transform: rotate(2deg);
+    transition: .5s;
+    background-color: #603e3e;
+}
+
+.editProfileLink {
+    color: #56949f;
+    margin-top: 1em;
+    transition: .5s;
+}
+
+.editProfileLink:hover {
+    color: #286983;
+    transition: .2s;
+}

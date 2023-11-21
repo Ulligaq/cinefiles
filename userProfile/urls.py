@@ -1,10 +1,10 @@
-from django.urls import path
-from .views import CreateProfileView, EditProfileView, ProfileOverviewView
+from django.urls import path, include
+from .views import UserProfileView, CreateUserView, EditProfileView
 
 urlpatterns = [
     path(
         "new-user/",
-        CreateProfileView.as_view(template_name="createprofile.html"),
+        CreateUserView.as_view(template_name="createprofile.html"),
         name="createprofile",
     ),  # url for new user profile creation
     path(
@@ -14,7 +14,7 @@ urlpatterns = [
     ),
     path(
         "overview/",
-        ProfileOverviewView.as_view(template_name="profileoverview.html"),
+        UserProfileView.as_view(template_name="profileoverview.html"),
         name="profileoverview",
     ),
 ]
