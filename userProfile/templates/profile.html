@@ -1,4 +1,5 @@
 {% extends "reviewBase.html" %}
+
 {% block content %}
 
 {% if profile %}
@@ -26,6 +27,31 @@
         <button name="follow" value="follow" type="submit">Follow {{ profile.user.username }}</button>
         {% endif %}    
     </form>
+
+
+
+
+
+
+
+    <!--
+    {% for review in review_list%}
+        {% if review.author.id != profile.user.id %}
+            <script>
+                console.log("{{review.author.id}}");
+            </script>
+            <div class="reviewCard">
+                <image src="{{review.thumbnail}}"></image>
+
+                <div>
+                    <a href="{% url 'review_detail' review.pk %}"><h1>{{ review.title }}</h1></a>
+                    <h2>{{ review.author }}</h2>
+                </div>
+                
+            </div>
+        {% endif %}
+    {% endfor %}
+    -->
 
 {% endif %}
 

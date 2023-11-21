@@ -27,21 +27,16 @@
             <image src="{{review.thumbnail}}"></image>
         </div>
         <div>
+              
             <h1>{{review.title}}</h1>
-            <h2>{{review.author}}
+            <h2><a href="{% url 'profile' review.author.id %}">{{review.author}}</a>
             {% if user == review.author%}
             - <a href="{% url 'review_update' review.pk %}">Edit</a> - <a href="{% url 'review_delete' review.pk %}">Delete</a></h2>
             {% endif %}
-        </div>
-    </div>
 
-    <div>
-        <p>
-            {{review.content}}
-        </p>
-    </div>
-    </div>
 
+
+    </div>
     <div>
         {% if user.is_authenticated %}
         <style>
@@ -54,15 +49,18 @@
                 border-radius: 5px;
                 border: 1px solid #ccc;
                 box-shadow: 1px 1px 1px <black></black>;
+                outline-width: 0;
             }
         </style>
             <div class="commentCard">
+
                 <div class="commentForm" style="display: flex; flex-direction row">
                     <form action="" method="post">{% csrf_token %}
                         {{ form.as_p }}
                         <input type="submit" value="Post">
                     </form>
                 </div>
+
             </div>
             
         {% endif %}
@@ -76,4 +74,17 @@
         </div>
         {% endfor %}
     </div>
+
+
+
+</div>
+
+    <div>
+        <p>
+            {{review.content}}
+        </p>
+    </div>
+    </div>
+
+    
 {% endblock %}
