@@ -1,0 +1,32 @@
+{% extends "reviewBase.html" %}
+{% block content %}
+
+{% if profile %}
+
+    <h1>{{ profile.user.username }}'s Movie Collection</h1>
+
+    <strong> Follows </strong><br/>
+    {% for following in profile.follows.all %}
+        <a href="{% url 'profile' following.user.id %}"> {{ following }}</a></br>
+
+    {% endfor %}
+
+    </br></br>
+    <strong>Followed by </strong></br>
+    {% for following in profile.followed_by.all %}
+        <a href="{% url 'profile' following.user.id %}">
+             {{ following }}
+        </a></br>
+    {% endfor %}
+    <form method=POST>
+        {% csrf_token %}
+        {% if profile in user.profile.follows.all %}
+        <button name="follow" value="unfollow" type="submit">Unfollow {{ profile.user.username }}</button>
+        {% else %}
+        <button name="follow" value="follow" type="submit">Follow {{ profile.user.username }}</button>
+        {% endif %}    
+    </form>
+
+{% endif %}
+
+{% endblock %}
