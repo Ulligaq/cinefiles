@@ -5,7 +5,7 @@ from django.views.generic.edit import CreateView
 from django.views.generic.detail import SingleObjectMixin
 from django.views import View
 from .models import Review
-from .forms import CommentForm
+from .forms import CommentForm, ReviewForm
 from django.urls import reverse_lazy, reverse
 # Create your views here.
 
@@ -52,7 +52,7 @@ class ReviewDetailView(LoginRequiredMixin, View):
 class ReviewCreateView(CreateView):
     model = Review
     template_name = "reviewCreate.html"
-    fields = ["movie", "thumbnail", "title", "content"]
+    form_class = ReviewForm
     def form_valid(self, form):
         form.instance.author = self.request.user
         return super().form_valid(form)
