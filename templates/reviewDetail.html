@@ -1,21 +1,24 @@
 {% extends "home.html" %}
 
-{% block title %}{{review.title}}{% endblock title %}
+{% block title %}{{ review.title }}{% endblock title %}
 
 {% block reviewDetail %}
     
     <div style="display: flex; flex-direction: column;">
         <div>
-            <image src="{{review.thumbnail}}"></image>
+            <img src="{{ review.thumbnail }}" alt="Thumbnail">
         </div>
         <div>
-            <h1>{{review.title}}</h1>
-            <h2>{{review.author}} - <a href="{% url 'review_update' review.pk %}">Edit</a> - <a href="{% url 'review_delete' review.pk %}">Delete</a></h2>
+            <h1>{{ review.title }}</h1>
+            <h2><a href="{% url 'profileoverview' %}">{{ review.author.username }}</a>
+            {% if review.author.username == user.username %}
+                - <a href="{% url 'review_update' review.pk %}">Edit</a> - <a href="{% url 'review_delete' review.pk %}">Delete</a></h2>
+            {% endif %}
         </div>
     </div>
     <div>
         <p>
-            {{review.content}}
+            {{ review.content }}
         </p>
     </div>
 {% endblock %}
