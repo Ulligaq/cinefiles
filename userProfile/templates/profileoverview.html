@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div style="margin: 0; padding: 0; display: flex; flex-direction: column;">
+    <header>
+        <h2 style="padding-bottom: 1em">{{ user.username }}'s Profile Overview</h2>
+    </header>
+
+    <body>
+        <h3>Favorite Movie: {{ user.profile.favorite_movie }}</h3>
+        <h3>Favorite Color: {{ user.profile.favorite_color }}</h3>
+        
+        <a href="{% url 'edit_profile' %}">Edit Profile</a>
+    </body>
+</div>
+
+{% endblock content %}

@@ -18,15 +18,13 @@
             
             {% if user.is_authenticated %}
             <a href="{% url 'logout' %}">LOGOUT</a> | Welcome {{ user.username }}
+            <a href="{% url 'review_create' %}">| New Review</a>
+            <a href="{% url 'profileoverview' %}">| Profile</a>
           
             {% else %}
             <a href="{% url 'login' %}">LOGIN</a> | <a href="{% url 'createprofile' %}">SIGNUP</a>
             {% endif %}
 
-            {% if user.is_authenticated %}
-            <a href="{% url 'review_create' %}" style="padding-left:2em">New Review</a></li>
-            {% else %}
-            {% endif %}
 
         </div>
 
