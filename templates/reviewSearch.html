@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+    <center>
+    {% if searched %}
+        <h1>{{ searched }}</h1>
+        </br>
+        {% for movie in movies %}
+            {{ movie }} </br>
+            <a href="{% url 'profile' request.user.id %}">{{ movie.author }}</a></br>
+        {% endfor %}
+    {% else %}
+        <h1>No Search</h1>
+    {% endif %}
+    
+    </center>
+
+{% endblock %}

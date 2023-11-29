@@ -1,5 +1,6 @@
 from django.urls import path, include
 from .views import ReviewListView, ReviewDetailView, ReviewCreateView, ReviewUpdateView, ReviewDeleteView
+from . import views
 
 urlpatterns = [
     path("reviewCreate/", ReviewCreateView.as_view(template_name="reviewCreate.html"), name="review_create"),
@@ -9,5 +10,6 @@ urlpatterns = [
     path("review/<int:pk>/delete", ReviewDeleteView.as_view(template_name="reviewDelete.html"), name="review_delete"),
     path("profile/", include("django.contrib.auth.urls")), #new url for users
     path("profile/", include("userProfile.urls")), #url  for profiles
-    
+    path("reviewSearch", views.reviewSearch, name='reviewSearch'),
+
 ]
