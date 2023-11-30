@@ -13,8 +13,13 @@ urlpatterns = [
         name="edit_profile",
     ),
     path(
-        "overview/",
+        "overview/<str:username>/",
         UserProfileView.as_view(template_name="profileoverview.html"),
         name="profileoverview",
+    ),
+    path(
+        "guest/overview/<str:username>/",
+        UserProfileView.as_view(template_name="profileGuestView.html"),
+        name="profileGuestView",
     ),
 ]

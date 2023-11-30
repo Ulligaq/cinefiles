@@ -7,8 +7,8 @@
 {% block content %}
     <div class="profilepage">
         <div class="profileHeader">
-            <h1>{{ user.username }}'s Profile Overview</h1>
-            <p>Email: {{ user.email }}</p>
+            <h1>{{ review.author.username }}'s Profile Overview</h1>
+            <p>Email: {{ review.author.email }}</p>
         </div>
 
         <div class="profileDetails">
@@ -26,18 +26,17 @@
 
         <div class="editpermissions">
 
-            {% if request.user == user %}
-            <a href="{% url 'edit_profile' %}" class="editProfileLink">Edit Profile</a>
+            {% if request.user == review.author %}
+                <a href="{% url 'edit_profile' %}" class="editProfileLink">Edit Profile</a>
             {% endif %}
 
             {% if profile %}
 
-                <h1>{{ profile.user.username }}'s Movie Collection</h1>
+                <h1>{{ review.author.username }}'s Movie Collection</h1>
 
                 <strong> Follows </strong><br/>
                 {% for following in profile.follows.all %}
                     <a href="{% url 'profile' following.user.id %}"> {{ following }}</a></br>
-
                 {% endfor %}
 
                 </br></br>
@@ -49,19 +48,14 @@
                 {% endfor %}
                 <form method=POST>
                     {% csrf_token %}
-                    {% if profile in user.profile.follows.all %}
-                    <button name="follow" value="unfollow" type="submit">Unfollow {{ profile.user.username }}</button>
+                    {% if profile in review.author.profile.follows.all %}
+                        <button name="follow" value="unfollow" type="submit">Unfollow {{ review.author.username }}</button>
                     {% else %}
-                    <button name="follow" value="follow" type="submit">Follow {{ profile.user.username }}</button>
+                        <button name="follow" value="follow" type="submit">Follow {{ review.author.username }}</button>
                     {% endif %}    
                 </form>
-
-
-
+            {% endif %}
         </div>
         
     </div>
-{% endif %}
 {% endblock content %}
-
-

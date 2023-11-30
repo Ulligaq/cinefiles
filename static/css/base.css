@@ -155,7 +155,7 @@ a:hover {
     padding: 1em;
     border-radius: 0 1em 1em 0;
     transition: .2s;
-    text-align: center; /* Center the text inside the box */
+    text-align: center;
 }
 
 .profileBox h2 {
@@ -165,7 +165,7 @@ a:hover {
 
 .profileBox p {
     font-size: 1.2em;
-    margin: 0; /* Remove default margin for p element */
+    margin: 0;
 }
 
 .profileBox:hover {
@@ -178,6 +178,7 @@ a:hover {
     color: #56949f;
     margin-top: 1em;
     transition: .5s;
+    text-decoration: none; /* Remove underline */
 }
 
 .editProfileLink:hover {
