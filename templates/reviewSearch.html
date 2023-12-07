@@ -1,19 +1,41 @@
-{% extends "base.html" %}
 
+{% extends "reviewBase.html" %}
 
-{% block content %}
-    <center>
+{% block title %}Search{% endblock title %}
+
+{% block feed %}
+
+    <style>
+        @media screen and (max-width: 1040px) {
+        
+            .cardDetail{
+                display: none;
+            }
+            
+            .reviewFeed{
+                max-width: calc(100vw - 2em);
+                min-width: calc(100vw - 2em);
+                margin-left: 1em;
+            }
+        }
+    </style>
+
     {% if searched %}
         <h1>{{ searched }}</h1>
         </br>
         {% for movie in movies %}
-            {{ movie }} </br>
-            <a href="{% url 'profile' request.user.id %}">{{ movie.author }}</a></br>
+        <div class="reviewCard">
+            <image src="{{review.thumbnail}}"></image>
+
+            <div>
+                <a href="{% url 'review_detail' review.pk %}"></a><h1>{{ movie.title }}</h1></a>
+                <a href="{% url 'profile' request.user.id %}"><h2>{{ movie.author }}</h2></a>
+            </div>
+            
+        </div>
         {% endfor %}
     {% else %}
         <h1>No Search</h1>
     {% endif %}
     
-    </center>
-
 {% endblock %}
