@@ -24,15 +24,15 @@
         <h1>{{ searched }}</h1>
         </br>
         {% for movie in movies %}
-        <div class="reviewCard">
-            <image src="{{review.thumbnail}}"></image>
-
-            <div>
-                <a href="{% url 'review_detail' review.pk %}"></a><h1>{{ movie.title }}</h1></a>
-                <a href="{% url 'profile' request.user.id %}"><h2>{{ movie.author }}</h2></a>
+        <a href="{% url 'review_detail' movie.pk %}">
+            <div class="reviewCard">
+                <img src="{{ movie.thumbnail }}" alt="Review Thumbnail">
+                <div>
+                    <h1>{{ movie.title }}</h1>
+                    <h2>{{ movie.author }}</h2>
+                </div>
             </div>
-            
-        </div>
+        </a>
         {% endfor %}
     {% else %}
         <h1>No Search</h1>
