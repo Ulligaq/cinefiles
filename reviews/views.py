@@ -67,3 +67,11 @@ class ReviewDeleteView(DeleteView):
     template_name = "reviewDelete.html"
     success_url = reverse_lazy('home')
 
+def reviewSearch(request):
+    if request.method == "POST":
+        searched = request.POST.get('searched')
+        movies = Review.objects.filter(movie__contains=searched)
+
+        return render(request, 'reviewSearch.html', {'searched':searched,'movies':movies})
+    else:
+        return render(request, 'reviewSearch.html', {})
