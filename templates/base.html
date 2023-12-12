@@ -13,8 +13,9 @@
 
     <body>
         <div class="navbelt">
-            <a href="{% url 'home' %}"><img src="..\..\static\cinefiles.png" style="height: 100%; padding-left:1em"></a> |
+            <a href="{% url 'home' %}"><img src="{% static 'cinefiles.png' %}" style="height: 100%; padding-left:1em"></a> |
 
+            
             
             {% if user.is_authenticated %}
             <a href="{% url 'logout' %}">LOGOUT</a> | Welcome <a href="{% url 'profile' request.user.id %}">{{ user.username }}</a>    
@@ -26,17 +27,21 @@
             {% if user.is_authenticated %}
             <a href="{% url 'review_create' %}" style="padding-left:2em">New Review</a></li>
             {% endif %}
+
+            <form style="text-align: right; display: inline; padding-left: 5em;" method=POST action="{% url 'reviewSearch' %}">
+                
+                {% csrf_token %}
+
+                <input type="text" placeholder="Search Movies" style="background-color: #382121; color: white; border-radius: 5px; border: 1px solid black; outline-width: 0;"name="searched">
+                <input type="submit" value="Search">
+            </form>
+
+            
             
             
 
         </div>
-            <form style="text-align: right;" method=POST action="{% url 'reviewSearch' %}">
-                
-                {% csrf_token %}
-
-                <input type="text" placeholder="Search Movies" name="searched">
-                <button type="submit">Submit</button>
-            </form>
+            
 
 
         <div class="mainContent">

@@ -25,11 +25,11 @@
         </br>
         {% for movie in movies %}
         <a href="{% url 'review_detail' movie.pk %}">
-            <div class="reviewCard">
+            <div class="reviewCard" style="padding-left: 1em">
                 <img src="{{ movie.thumbnail }}" alt="Review Thumbnail">
                 <div>
                     <h1>{{ movie.title }}</h1>
-                    <h2>{{ movie.author }}</h2>
+                    <h2>Written By: {{ movie.author }}</h2>
                 </div>
             </div>
         </a>

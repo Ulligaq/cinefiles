@@ -116,6 +116,28 @@ a:hover {
     height: 20em;
 }
 
+button {
+    color: white;
+    background-color: #603e3e;
+}
+
+input[type="submit"] {
+    color: white;
+    background-color: #603e3e;
+    border: none;
+    border-radius: .5em .5em .5em .5em ;
+}
+
+input[type="submit"]:hover {
+    background-color: #7c4d4d;
+
+}
+
+input[type="submit"]:active {
+    background-color: #3a2020;
+    box-shadow: 0 1px #491c1c;
+}
+
 
 ::-webkit-scrollbar {
     width: 10px;

@@ -6,15 +6,46 @@
 <h2 style="padding-bottom:1em">Log Into Profile</h2>
 
 
-<form method="post">{% csrf_token %}
+<style>
+    .profileForm{
+        margin-top: 5em;
+        color: white;
+        padding: 1em;
+        width: 60em;
+        justify-content: center;
+        vertical-align: top;
+        position: absolute;
+        left: 3em;
+        background-color: #4d2f2f;
+        border-radius: 5px;
+        border: 1px solid black;
+    }
+</style>
 
+<body>
+    <div class="profileForm">
+    <form method="post">
+        <style>
+            form > p > input{
+                background-color: #382121;
+                color: white;
+                border-radius: 5px;
+                border: 1px solid black;
+                outline-width: 0;
+                width: 30%;
+                vertical-align: top;
+            }
+        </style>
+        {% csrf_token %}
+        
+        {{ form.as_p }}
+        
+        
+        <input type="submit" value="Login">
+    </form>
+    </div>
+</body>
 
-    {{form.as_p }}
-
-    <button type="submit">Proceed</button>
-
-
-</form>
 </div>
 
 {% endblock content %}

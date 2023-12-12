@@ -62,6 +62,16 @@ class ReviewUpdateView(UpdateView):
     template_name = "reviewUpdate.html"
     fields = ["thumbnail", "title", "content"]
 
+    def get_object(self, queryset=None):
+        return self.request.user.profile
+    
+    def get_form(self, form_class=None):
+        form = super(ReviewUpdateView, self).get_form(form_class)
+        form.fields['thumbnail'].widget.attrs['class'] = 'reviewContent'
+        form.fields['title'].widget.attrs['class'] = 'reviewContent'
+        form.fields['content'].widget.attrs['class'] = 'reviewContent'
+        return form
+
 class ReviewDeleteView(DeleteView):
     model = Review
     template_name = "reviewDelete.html"
