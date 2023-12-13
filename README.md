@@ -26,6 +26,8 @@ Nextly, is the navigation bar present on all pages. This will feature the home b
 Clicking a review card will access the review's details, including the ability to access the writer's profile or write a comment.
 Clicking on your name on the navigation bar will also bring you to your own profile page
 
+https://cinefiles.fly.dev/ url
+
 Your profile page will feature your list of top 5 movies, a watch list, and your recent reviews which can be accessed in a similar manner to the review feed/homepage.
 You will also be able to edit your user information here aswell, including changing your password if you are already logged in.
 
