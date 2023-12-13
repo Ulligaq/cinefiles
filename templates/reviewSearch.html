@@ -1,0 +1,41 @@
+
+{% extends "reviewBase.html" %}
+
+{% block title %}Search{% endblock title %}
+
+{% block feed %}
+
+    <style>
+        @media screen and (max-width: 1040px) {
+        
+            .cardDetail{
+                display: none;
+            }
+            
+            .reviewFeed{
+                max-width: calc(100vw - 2em);
+                min-width: calc(100vw - 2em);
+                margin-left: 1em;
+            }
+        }
+    </style>
+
+    {% if searched %}
+        <h1>{{ searched }}</h1>
+        </br>
+        {% for movie in movies %}
+        <a href="{% url 'review_detail' movie.pk %}">
+            <div class="reviewCard" style="padding-left: 1em">
+                <img src="{{ movie.thumbnail }}" alt="Review Thumbnail">
+                <div>
+                    <h1>{{ movie.title }}</h1>
+                    <h2>Written By: {{ movie.author }}</h2>
+                </div>
+            </div>
+        </a>
+        {% endfor %}
+    {% else %}
+        <h1>No Search</h1>
+    {% endif %}
+    
+{% endblock %}

@@ -4,54 +4,65 @@
 
 {% if profile %}
 
-    <h1>{{ profile.user.username }}'s Movie Collection</h1>
+    <div style="display: flex; padding-left: 1em; padding-top: 2em">
+        <div class="reviewFeed" style="margin-left: 0">
+            <h1>{{ profile.user.username }}'s Reviews</h1>
+            {% for review in reviews%}
+                <div class="reviewCard">
+                    <image src="{{review.thumbnail}}"></image>
 
-    <strong> Follows </strong><br/>
-    {% for following in profile.follows.all %}
-        <a href="{% url 'profile' following.user.id %}"> {{ following }}</a></br>
-
-    {% endfor %}
-
-    </br></br>
-    <strong>Followed by </strong></br>
-    {% for following in profile.followed_by.all %}
-        <a href="{% url 'profile' following.user.id %}">
-             {{ following }}
-        </a></br>
-    {% endfor %}
-    <form method=POST>
-        {% csrf_token %}
-        {% if profile in user.profile.follows.all %}
-        <button name="follow" value="unfollow" type="submit">Unfollow {{ profile.user.username }}</button>
-        {% else %}
-        <button name="follow" value="follow" type="submit">Follow {{ profile.user.username }}</button>
-        {% endif %}    
-    </form>
-
-
-
-
-
-
-
-    <!--
-    {% for review in review_list%}
-        {% if review.author.id != profile.user.id %}
-            <script>
-                console.log("{{review.author.id}}");
-            </script>
-            <div class="reviewCard">
-                <image src="{{review.thumbnail}}"></image>
-
-                <div>
-                    <a href="{% url 'review_detail' review.pk %}"><h1>{{ review.title }}</h1></a>
-                    <h2>{{ review.author }}</h2>
+                    <div style="padding-left: 1em">
+                        <a href="{% url 'review_detail' review.pk %}"><h1>{{ review.title }}</h1></a>
+                        <h2>Written By: {{ review.author }}</h2>
+                        <p> {{review.movie}} </p>
+                    </div>
+                    
                 </div>
+            {% endfor %}
+        </div>
+
+        <div style="display:flex;flex-direction:column">
+            <div style=" display: flex; flex-direction: column; background-color: #301c1c; color: #dacbcb; width: 60em; height: 40em; padding: 2em; overflow-y: auto;">
+                {{profile.biography}}
                 
             </div>
-        {% endif %}
-    {% endfor %}
-    -->
+            {% if user == profile.user %}
+                <a href="{% url 'profileEditBio' %}">Edit Bio</a>
+                {% endif %}
+
+            <div style="padding-left: 2em; display: flex; flex-direction: row">
+                <div style="padding-left: 2em;">
+                    <strong> Follows </strong><br/>
+                    {% for following in profile.follows.all %}
+                        <a href="{% url 'profile' following.user.id %}"> {{ following }}</a></br>
+                
+                    {% endfor %}
+                </div>
+
+                <div style="padding-left: 2em;">
+                    <strong>Followed by </strong></br>
+                    {% for following in profile.followed_by.all %}
+                        <a href="{% url 'profile' following.user.id %}">
+                            {{ following }}
+                        </a></br>
+                    {% endfor %}
+
+                    <form method=POST>
+                        {% csrf_token %}
+                        {% if profile in user.profile.follows.all %}
+                        <button name="follow" value="unfollow" type="submit">Unfollow {{ profile.user.username }}</button>
+                        {% else %}
+                        <button name="follow" value="follow" type="submit">Follow {{ profile.user.username }}</button>
+                        {% endif %}    
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    
+    
 
 {% endif %}
 

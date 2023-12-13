@@ -4,17 +4,44 @@
 
 <div style="margin: 0; padding: 0; display: flex; flex-direction: column;">
 <header>
-    <h2 style="padding-bottom:1em">Create A New Profile</h2>
+    <h1 style="position: absolute; left: 3em;">Create A New Profile</h1>
 </header>
 
+<style>
+    .profileForm{
+        margin-top: 5em;
+        color: white;
+        padding: 1em;
+        width: 60em;
+        justify-content: center;
+        vertical-align: top;
+        position: absolute;
+        left: 3em;
+        background-color: #4d2f2f;
+        border-radius: 5px;
+        border: 1px solid black;
+    }
+    .profileThin{
+        background-color: #382121;
+        color: white;
+        border-radius: 5px;
+        border: 1px solid black;
+        outline-width: 0;
+        width: 30%;
+        vertical-align: top;
+    }
+</style>
+
 <body>
+    <div class="profileForm">
     <form method="post">
         {% csrf_token %}
         
         {{ form.as_p }}
         
-        <button type="submit">Create New Account</button>
+        <input type="submit" value="Create New Account">
     </form>
+    </div>
 </body>
 </div>
 {% endblock content %}

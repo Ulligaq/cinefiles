@@ -9,6 +9,7 @@ class Profile(models.Model):
         related_name="followed_by", 
         symmetrical=False,
         blank=True)
+    biography = models.TextField(default="This user is new!")
     
     def __str__(self):
         return self.user.username

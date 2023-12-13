@@ -28,10 +28,10 @@
         </div>
         <div>
               
-            <h1>{{review.title}}</h1>
-            <h2><a href="{% url 'profile' review.author.id %}">{{review.author}}</a>
+            <h1 style="font-size: 2em">{{review.title}}</h1>
+            <h2><a href="{% url 'profile' review.author.id %}" style="font-size: .7em">{{review.author}}</a>
             {% if user == review.author%}
-            - <a href="{% url 'review_update' review.pk %}">Edit</a> - <a href="{% url 'review_delete' review.pk %}">Delete</a></h2>
+            - <a href="{% url 'review_update' review.pk %}" style="font-size: .7em" >Edit</a> - <a href="{% url 'review_delete' review.pk %}" style="font-size: .7em">Delete</a></h2>
             {% endif %}
 
 

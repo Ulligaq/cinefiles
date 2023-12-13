@@ -62,8 +62,26 @@ class ReviewUpdateView(UpdateView):
     template_name = "reviewUpdate.html"
     fields = ["thumbnail", "title", "content"]
 
+    def get_object(self, queryset=None):
+        return self.request.user.profile
+    
+    def get_form(self, form_class=None):
+        form = super(ReviewUpdateView, self).get_form(form_class)
+        form.fields['thumbnail'].widget.attrs['class'] = 'reviewContent'
+        form.fields['title'].widget.attrs['class'] = 'reviewContent'
+        form.fields['content'].widget.attrs['class'] = 'reviewContent'
+        return form
+
 class ReviewDeleteView(DeleteView):
     model = Review
     template_name = "reviewDelete.html"
     success_url = reverse_lazy('home')
 
+def reviewSearch(request):
+    if request.method == "POST":
+        searched = request.POST.get('searched')
+        movies = Review.objects.filter(movie__contains=searched)
+
+        return render(request, 'reviewSearch.html', {'searched':searched,'movies':movies})
+    else:
+        return render(request, 'reviewSearch.html', {})

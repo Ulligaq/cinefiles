@@ -1,20 +1,56 @@
 {% extends "base.html" %}
 
-
 {% block content %}
+<div style="margin: 0; padding: 0; display: flex; flex-direction: column;">
 
+    <h1 style="position: absolute; left: 25vw;">Edit Review</h1>
+        <div style="width: 100vw; ">
+        <style>
+            .reviewForm{
+                margin-top: 5em;
+                color: white;
+                padding: 1em;
+                width: 50em;
+                justify-content: center;
+                text-align: center;
+                vertical-align: top;
+                position: absolute;
+                left: 25vw;
+                background-color: #4d2f2f;
+                border-radius: 5px;
+                border: 1px solid black;
+            }
+            .reviewContent{
+                background-color: #382121;
+                color: white;
+                border-radius: 5px;
+                border: 1px solid black;
+                outline-width: 0;
+                width: 80%;
+                vertical-align: top;
+            }
+            .reviewThin{
+                background-color: #382121;
+                color: white;
+                border-radius: 5px;
+                border: 1px solid black;
+                outline-width: 0;
+                width: 30%;
+                vertical-align: top;
+            }
+        </style>
+        </div>
 
-<h1>Edit Review</h1>
+        <div class="reviewForm">
 
+            <form action="" method="post">{% csrf_token %}
 
-<form action="" method="post">{% csrf_token %}
-</br></br></br> 
-    {{ form.as_p }}
+                {{ form.as_p }}
+            
+                <input type="submit" value="Update">
+            
+            </form>
+        </div>
 
-    <input type="submit" value="Update">
-
-
-
-</form>
-
+</div>
 {% endblock content %}

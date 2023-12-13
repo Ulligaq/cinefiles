@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+<div style="margin: 0; padding: 0; display: flex; flex-direction: column;">
+
+<h1 style="position: absolute; left: 10em">Edit Biography</h1>
+<div style="width: 100vw; ">
+    <style>
+        .reviewForm{
+            margin-top: 5em;
+            color: white;
+            padding: 1em;
+            width: 50em;
+            vertical-align: top;
+            position: absolute;
+            left: 25vw;
+            background-color: #4d2f2f;
+            border-radius: 5px;
+            border: 1px solid black;
+        }
+        .reviewContent{
+            background-color: #382121;
+            color: white;
+            border-radius: 5px;
+            border: 1px solid black;
+            outline-width: 0;
+            width: 80%;
+            vertical-align: top;
+        }
+    </style>
+</div>
+
+<div class="reviewForm">
+    <form action="" method="post">{% csrf_token %}
+        {{ form.as_p }}
+
+        <input type="submit" value="Post Bio">
+    </form>
+</div>
+
+</div>
+{% endblock content %}

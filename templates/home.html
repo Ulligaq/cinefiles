@@ -23,9 +23,10 @@
         <div class="reviewCard">
             <image src="{{review.thumbnail}}"></image>
 
-            <div>
+            <div style="padding-left: 1em">
                 <a href="{% url 'review_detail' review.pk %}"><h1>{{ review.title }}</h1></a>
-                <h2>{{ review.author }}</h2>
+                <h2>Written By: {{ review.author }}</h2>
+                <p> {{review.movie}} </p>
             </div>
             
         </div>
