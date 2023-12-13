@@ -76,7 +76,7 @@ class EditBioView(UpdateView):
     fields = ["biography",]
 
     def get_success_url(self):
-        return reverse_lazy('profile', kwargs={'pk': self.request.user.profile.pk + 1})
+        return reverse_lazy('profile', kwargs={'pk': self.request.user.profile.pk})
 
     def get_object(self, queryset=None):
         return self.request.user.profile
